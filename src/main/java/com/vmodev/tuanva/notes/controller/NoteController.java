@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vmodev.tuanva.notes.dto.BaseResponseDTO;
 import com.vmodev.tuanva.notes.dto.NoteRequestDTO;
-import com.vmodev.tuanva.notes.dto.group.Create;
-import com.vmodev.tuanva.notes.dto.group.Update;
+import com.vmodev.tuanva.notes.dto.group.NoteCreateGroup;
+import com.vmodev.tuanva.notes.dto.group.NoteUpdateGroup;
 import com.vmodev.tuanva.notes.model.PlainNote;
 import com.vmodev.tuanva.notes.service.NoteAbstractFactory;
 import com.vmodev.tuanva.notes.service.note.PlainNoteServiceImpl;
@@ -39,7 +39,7 @@ public class NoteController {
 	}
 
 	@PostMapping("/")
-	public ResponseEntity<Boolean> create(@Validated(Create.class) @RequestBody NoteRequestDTO request)
+	public ResponseEntity<Boolean> create(@Validated(NoteCreateGroup.class) @RequestBody NoteRequestDTO request)
 			throws Exception {
 		return ResponseEntity.status(HttpStatus.OK).body(noteAbstractFactory.get(request.getType()).create(request));
 	}
@@ -60,7 +60,7 @@ public class NoteController {
 
 	@PutMapping("/")
 	public ResponseEntity<BaseResponseDTO<PlainNote>> update(
-			@Validated(Update.class) @RequestBody NoteRequestDTO request) throws Exception {
+			@Validated(NoteUpdateGroup.class) @RequestBody NoteRequestDTO request) throws Exception {
 		return ResponseEntity.status(HttpStatus.OK).body(noteAbstractFactory.get(request.getType()).update(request));
 	}
 

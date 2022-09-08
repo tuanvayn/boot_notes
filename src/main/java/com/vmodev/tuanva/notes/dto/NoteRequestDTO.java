@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
-import com.vmodev.tuanva.notes.dto.group.Create;
-import com.vmodev.tuanva.notes.dto.group.Update;
+import com.vmodev.tuanva.notes.dto.group.NoteCreateGroup;
+import com.vmodev.tuanva.notes.dto.group.NoteUpdateGroup;
 import com.vmodev.tuanva.notes.model.ImageNote;
 import com.vmodev.tuanva.notes.model.MultipleChoiceNote;
 
@@ -19,11 +19,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NoteRequestDTO {
-	@NotNull(groups = Update.class)
+	@NotNull(groups = NoteUpdateGroup.class)
 	private Long id;
-	@NotNull(groups = { Update.class, Create.class })
+	@NotNull(groups = { NoteUpdateGroup.class, NoteCreateGroup.class })
 	private String title;
-	@NotNull(groups = { Update.class, Create.class })
+	@NotNull(groups = { NoteUpdateGroup.class, NoteCreateGroup.class })
 	private String type;
 	private String desc;
 	private List<ImageNote> imageNotes;
