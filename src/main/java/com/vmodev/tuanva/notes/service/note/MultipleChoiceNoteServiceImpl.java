@@ -55,7 +55,6 @@ public class MultipleChoiceNoteServiceImpl implements NoteService {
 		}
 		note.getMultipleChoiceNotes().clear();
 		plainNoteRepo.delete(note);
-//		multipleChoiceNoteRepo.deleteAll(imageNotes);
 		return true;
 	}
 
