@@ -7,6 +7,7 @@ import com.vmodev.tuanva.notes.service.note.ImageNoteServiceImpl;
 import com.vmodev.tuanva.notes.service.note.MultipleChoiceNoteServiceImpl;
 import com.vmodev.tuanva.notes.service.note.NoteService;
 import com.vmodev.tuanva.notes.service.note.PlainNoteServiceImpl;
+import com.vmodev.tuanva.notes.service.util.Constants;
 
 @Service
 public class NoteFactory implements NoteAbstractFactory {
@@ -22,11 +23,11 @@ public class NoteFactory implements NoteAbstractFactory {
 	@Override
 	public NoteService get(String type) {
 		switch (type) {
-		case "1":
+		case Constants.NoteType.PLAIN_NOTE:
 			return plainNoteServiceImpl;
-		case "2":
+		case Constants.NoteType.MC_NOTE:
 			return multipleChoiceNoteServiceImpl;
-		case "3":
+		case Constants.NoteType.IMAGE_NOTE:
 			return imageServiceImpl;
 		default:
 			throw new IllegalArgumentException("Type not support");
