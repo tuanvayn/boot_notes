@@ -13,7 +13,7 @@ public interface NoteService {
 	 * @return true, if successful
 	 * @throws Exception the exception
 	 */
-	boolean create(NoteRequestDTO request) throws Exception;
+	public boolean create(NoteRequestDTO request) throws Exception;
 
 	/**
 	 * Delete note by it's id.
@@ -21,7 +21,7 @@ public interface NoteService {
 	 * @param id the id
 	 * @return true, if successful
 	 */
-	boolean delete(Long id);
+	public boolean delete(Long id);
 
 	/**
 	 * Update note.
@@ -29,7 +29,7 @@ public interface NoteService {
 	 * @param request the request
 	 * @return the base response DTO
 	 */
-	BaseResponseDTO<PlainNote> update(NoteRequestDTO request);
+	public BaseResponseDTO<PlainNote> update(NoteRequestDTO request);
 
 	/**
 	 * Gets the note by id.
@@ -37,6 +37,6 @@ public interface NoteService {
 	 * @param id the id
 	 * @return the base response DTO
 	 */
-	BaseResponseDTO<PlainNote> get(Long id);
+	public BaseResponseDTO<PlainNote> get(Long id);
 
 }
