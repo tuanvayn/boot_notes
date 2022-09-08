@@ -64,4 +64,9 @@ public class NoteController {
 		return ResponseEntity.status(HttpStatus.OK).body(noteAbstractFactory.get(request.getType()).update(request));
 	}
 
+	@GetMapping("/")
+	public ResponseEntity<BaseResponseDTO<Integer>> countIncompleted() throws Exception {
+		return ResponseEntity.status(HttpStatus.OK).body(plainNoteServiceImpl.countIncompleted());
+	}
+
 }

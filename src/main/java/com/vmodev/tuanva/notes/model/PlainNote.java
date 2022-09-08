@@ -22,7 +22,6 @@ import org.springframework.util.CollectionUtils;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -38,6 +37,7 @@ import lombok.experimental.SuperBuilder;
 @Accessors(chain = true)
 public class PlainNote extends BaseNote {
 	private String title;
+	private String status;
 	private String type;
 	@CreatedBy
 	private String createdBy;

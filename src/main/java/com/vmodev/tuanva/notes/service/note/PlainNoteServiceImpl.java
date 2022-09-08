@@ -12,6 +12,7 @@ import com.vmodev.tuanva.notes.exception.CustomNotFoundException;
 import com.vmodev.tuanva.notes.model.PlainNote;
 import com.vmodev.tuanva.notes.repo.PlainNoteRepo;
 import com.vmodev.tuanva.notes.service.user.SecurityContextService;
+import com.vmodev.tuanva.notes.service.util.NoteStatusEnum;
 
 @Service
 public class PlainNoteServiceImpl implements NoteService {
@@ -50,6 +51,11 @@ public class PlainNoteServiceImpl implements NoteService {
 
 	public BaseResponseDTO<List<PlainNote>> list() throws Exception {
 		return new BaseResponseDTO<List<PlainNote>>(plainNoteRepo.findByCreatedBy(SecurityContextService.getUser()));
+	}
+
+	public BaseResponseDTO<Integer> countIncompleted() throws Exception {
+		return new BaseResponseDTO<Integer>(plainNoteRepo.countByCreatedByAndStatus(SecurityContextService.getUser(),
+				NoteStatusEnum.INCOMPLETED.getStatus()));
 	}
 
 }

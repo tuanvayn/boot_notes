@@ -10,4 +10,6 @@ import com.vmodev.tuanva.notes.model.PlainNote;
 @Repository
 public interface PlainNoteRepo extends JpaRepository<PlainNote, Long> {
 	List<PlainNote> findByCreatedBy(String username);
+
+	Integer countByCreatedByAndStatus(String username, String status);
 }
