@@ -5,12 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -42,13 +39,9 @@ public class PlainNote extends BaseNote {
 	@CreatedBy
 	private String createdBy;
 
-	@Column(nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
 	@CreatedDate
 	private Date createdAt;
 
-	@Column(nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
 	@LastModifiedDate
 	private Date updatedAt;
 	private String desc;
